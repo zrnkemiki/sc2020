@@ -87,19 +87,15 @@ def is_pedestrian(width, height, minWidth=10, maxWidth=80, minHeight=12, maxHeig
     return minWidth < width < maxWidth or minHeight < height < maxHeight
 
 
-def opening(image):
-    # ostale sve su mi davale manju tacnost od obicne 3x3
-    kernel = np.ones((3, 3))
-    eroded = cv2.erode(image, kernel, iterations=2)
-    dilated = cv2.dilate(eroded, kernel, iterations=2)
+def opening(image, kernel, it=2):
+    eroded = cv2.erode(image, kernel, iterations=it)
+    dilated = cv2.dilate(eroded, kernel, iterations=it)
     return dilated
 
 
-def closing(image):
-    # ostale sve su mi davale manju tacnost od obicne 3x3
-    kernel = np.ones((3, 3))
-    dilated = cv2.dilate(image, kernel, iterations=2)
-    eroded = cv2.erode(dilated, kernel, iterations=2)
+def closing(image, kernel, it=2):
+    dilated = cv2.dilate(image, kernel, iterations=it)
+    eroded = cv2.erode(dilated, kernel, iterations=it)
     return eroded
 
 
@@ -141,7 +137,10 @@ def count_people(video_path, y1, y2):
         # cv2.imshow("Threshold", threshold)
         # cv2.waitKey(5)
 
-        threshold = closing(threshold)
+        # ostale sve su mi davale manju tacnost od obicne 3x3
+        kernel = np.ones((3, 3))
+
+        threshold = closing(threshold, kernel)
         # threshold = opening(threshold)
         # threshold = cv2.dilate(threshold, None, iterations=2)
         # threshold = cv2.erode(threshold, k, iterations=2)
