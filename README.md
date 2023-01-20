@@ -1,3 +1,5 @@
+Softkompjuting FTN 2020
+
 Metodologija: Podaci sadrze video platoa braon boje i ljude koji se krecu na istom, potrebno je izvrsiti prebrojavanje ljudi koji se barem u jednom trenutku nadju na platou.
 
 Zadatak: 
