@@ -1,4 +1,4 @@
-Softkompjuting FTN 2020
+# Projekat iz predmeta Softkompjuting, Fakultet Tehnickih Nauka - Novi Sad
 
 Metodologija: Podaci sadrze video platoa braon boje i ljude koji se krecu na istom, potrebno je izvrsiti prebrojavanje ljudi koji se barem u jednom trenutku nadju na platou.
 
